@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D47A63431CBC726D00377F48 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A63411CBC726D00377F48 /* BinarySearchTree.swift */; };
+		D47A63441CBC726D00377F48 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A63421CBC726D00377F48 /* Heap.swift */; };
+		D47A63461CBC727200377F48 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A63451CBC727200377F48 /* PriorityQueue.swift */; };
+		D47A63481CBC807800377F48 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A63471CBC807800377F48 /* AVLTree.swift */; };
 		D4EECA681CB88E1A005CD46F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EECA671CB88E1A005CD46F /* AppDelegate.swift */; };
 		D4EECA6A1CB88E1A005CD46F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EECA691CB88E1A005CD46F /* ViewController.swift */; };
 		D4EECA6D1CB88E1A005CD46F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4EECA6B1CB88E1A005CD46F /* Main.storyboard */; };
 		D4EECA6F1CB88E1A005CD46F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4EECA6E1CB88E1A005CD46F /* Assets.xcassets */; };
 		D4EECA721CB88E1A005CD46F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4EECA701CB88E1A005CD46F /* LaunchScreen.storyboard */; };
-		D4EECA811CB897BC005CD46F /* Abstract Data Types in Resources */ = {isa = PBXBuildFile; fileRef = D4EECA801CB897BC005CD46F /* Abstract Data Types */; };
-		D4EECA831CB897C6005CD46F /* Data Structures in Resources */ = {isa = PBXBuildFile; fileRef = D4EECA821CB897C6005CD46F /* Data Structures */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D47A63411CBC726D00377F48 /* BinarySearchTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BinarySearchTree.swift; path = "../Data Structures/BinarySearchTree.swift"; sourceTree = "<group>"; };
+		D47A63421CBC726D00377F48 /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Heap.swift; path = "../Data Structures/Heap.swift"; sourceTree = "<group>"; };
+		D47A63451CBC727200377F48 /* PriorityQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriorityQueue.swift; path = "../Abstract Data Types/PriorityQueue.swift"; sourceTree = "<group>"; };
+		D47A63471CBC807800377F48 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVLTree.swift; path = "Data Structures/AVLTree.swift"; sourceTree = SOURCE_ROOT; };
 		D4EECA641CB88E1A005CD46F /* Swift Data Structures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Data Structures.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EECA671CB88E1A005CD46F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4EECA691CB88E1A005CD46F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,8 +30,6 @@
 		D4EECA6E1CB88E1A005CD46F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4EECA711CB88E1A005CD46F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4EECA731CB88E1A005CD46F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4EECA801CB897BC005CD46F /* Abstract Data Types */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Abstract Data Types"; path = "../Abstract Data Types"; sourceTree = "<group>"; };
-		D4EECA821CB897C6005CD46F /* Data Structures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Data Structures"; path = "../Data Structures"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +62,10 @@
 		D4EECA661CB88E1A005CD46F /* Swift Data Structures */ = {
 			isa = PBXGroup;
 			children = (
-				D4EECA821CB897C6005CD46F /* Data Structures */,
-				D4EECA801CB897BC005CD46F /* Abstract Data Types */,
+				D47A63411CBC726D00377F48 /* BinarySearchTree.swift */,
+				D47A63471CBC807800377F48 /* AVLTree.swift */,
+				D47A63421CBC726D00377F48 /* Heap.swift */,
+				D47A63451CBC727200377F48 /* PriorityQueue.swift */,
 				D4EECA791CB88E25005CD46F /* App */,
 			);
 			path = "Swift Data Structures";
@@ -138,8 +144,6 @@
 			files = (
 				D4EECA721CB88E1A005CD46F /* LaunchScreen.storyboard in Resources */,
 				D4EECA6F1CB88E1A005CD46F /* Assets.xcassets in Resources */,
-				D4EECA811CB897BC005CD46F /* Abstract Data Types in Resources */,
-				D4EECA831CB897C6005CD46F /* Data Structures in Resources */,
 				D4EECA6D1CB88E1A005CD46F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +157,10 @@
 			files = (
 				D4EECA6A1CB88E1A005CD46F /* ViewController.swift in Sources */,
 				D4EECA681CB88E1A005CD46F /* AppDelegate.swift in Sources */,
+				D47A63461CBC727200377F48 /* PriorityQueue.swift in Sources */,
+				D47A63481CBC807800377F48 /* AVLTree.swift in Sources */,
+				D47A63431CBC726D00377F48 /* BinarySearchTree.swift in Sources */,
+				D47A63441CBC726D00377F48 /* Heap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

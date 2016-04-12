@@ -12,14 +12,14 @@ public enum MinMaxType {
     case Min, Max
 }
 
-public struct Heap<Element : Comparable> : CustomStringConvertible {
+class Heap<Element : Comparable> : CustomStringConvertible {
     
     // MARK: - Public Variables
     
-    public var count : Int { return heap.count }
-    public var isEmpty : Bool { return heap.isEmpty }
-    public var top : Element? { return heap.first }
-    public var description : String  { return heap.description }
+    var count : Int { return heap.count }
+    var isEmpty : Bool { return heap.isEmpty }
+    var top : Element? { return heap.first }
+    var description : String  { return heap.description }
     
     // MARK: - Private Variables
     
@@ -28,17 +28,17 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
     
     // MARK: - Initializers
     
-    public init() {
+    init() {
         isOrdered = { $0 < $1 }
     }
     
-    public init(comparison : (Element, Element) -> Bool ) {
+    init(comparison : (Element, Element) -> Bool ) {
         isOrdered = comparison
     }
     
     // MARK: - Convenience Initializers
     
-    public init(minMaxType : MinMaxType) {
+    convenience init(minMaxType : MinMaxType) {
         
         switch minMaxType {
         case .Max:
@@ -48,13 +48,13 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
         }
     }
     
-    public init(array : [Element], minMaxType : MinMaxType = .Min) {
+    convenience init(array : [Element], minMaxType : MinMaxType = .Min) {
         self.init(minMaxType: minMaxType)
         
         heapify(array)
     }
     
-    public init(array : [Element], comparison : (Element, Element) -> Bool) {
+    convenience init(array : [Element], comparison : (Element, Element) -> Bool) {
         self.init(comparison: comparison)
         
         heapify(array)
@@ -62,7 +62,7 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
     
     // MARK: - Element Insertion
     
-    public mutating func insert(item : Element) {
+    func insert(item : Element) {
         
         heap.append(item)
         shiftUp()
@@ -70,7 +70,7 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
     
     // MARK: - Element Removal
     
-    public mutating func pop() {
+    func pop() {
         
         if let last = heap.last {
             heap[heap.startIndex] = last
@@ -80,7 +80,7 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
         }
     }
     
-    public mutating func getTopAndPop() -> Element? {
+    func getTopAndPop() -> Element? {
         
         if let top = heap.first {
             pop()
@@ -90,7 +90,7 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
         return nil
     }
     
-    public mutating func replace(element : Element) -> Element? {
+    func replace(element : Element) -> Element? {
         
         if let top = heap.first {
             heap[heap.startIndex] = element
@@ -105,7 +105,7 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
     
     // MARK: - Element Sorting
     
-    public func sorted() -> [Element] {
+    func sorted() -> [Element] {
         var sorted = [Element]()
         
         var tempHeap = self
@@ -118,7 +118,7 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
     
     // MARK: - Shifting Elements
     
-    private mutating func shiftUp() {
+    private func shiftUp() {
         var index = heap.endIndex - 1
         
         while let parentIndex = parentIndex(index) where isOrdered(heap[index], heap[parentIndex]) {
@@ -127,7 +127,7 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
         }
     }
     
-    private mutating func shiftDown(startIndex : Int) {
+    private func shiftDown(startIndex : Int) {
         var index = startIndex
         
         while let childIndex = childToSwapIndex(index) { // IMPLICIT: where isOrdered(heap[childIndex], heap[index])
@@ -138,7 +138,7 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
     
     // MARK: - Array Heapifying
     
-    private mutating func heapify(array : [Element]) {
+    private func heapify(array : [Element]) {
         
         heap = array
         
@@ -183,6 +183,6 @@ public struct Heap<Element : Comparable> : CustomStringConvertible {
 
 // MARK: - Operator Overloads
 
-public func +=<Element : Comparable>(inout left : Heap<Element>, right: Element) {
+func +=<Element : Comparable>(inout left : Heap<Element>, right: Element) {
     left.insert(right)
 }
