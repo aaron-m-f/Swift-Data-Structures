@@ -53,6 +53,13 @@ internal class BinarySearchTree<Element : Comparable> : CustomStringConvertible,
         }
     }
     
+    init(arrayLiteral : [Element]) {
+        
+        for element in arrayLiteral {
+            insert(element)
+        }
+    }
+    
     // MARK: - Sequence Type
     
     func generate() -> AnyGenerator<Element> {
@@ -121,7 +128,7 @@ internal class BinarySearchTree<Element : Comparable> : CustomStringConvertible,
         return balanceNode(node)
     }
     
-    // MARK: - Element Find
+    // MARK: - Element Search
     
     func contains(element: Element) -> Bool {
         return binarySearch(element, node: root)
@@ -143,7 +150,7 @@ internal class BinarySearchTree<Element : Comparable> : CustomStringConvertible,
     }
     
     
-    // MARK: - Element Deletion
+    // MARK: - Element Removal
     
     func remove(element : Element) {
         root = binaryErase(element, node: root)

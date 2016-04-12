@@ -35,6 +35,15 @@ class AVLTree<Element : Comparable> : BinarySearchTree<Element> {
         }
     }
     
+    override init(arrayLiteral : [Element]) {
+        
+        super.init()
+        
+        for element in arrayLiteral {
+            insert(element)
+        }
+    }
+    
     // MARK: - Element Balance
     
     override internal func balanceNode(node : TreeNode<Element>) -> TreeNode<Element> {
