@@ -32,6 +32,8 @@ class TreeNode<Element : Comparable> {
     }
 }
 
+// MARK: Binary Search Tree
+
 internal class BinarySearchTree<Element : Comparable> : CustomStringConvertible, SequenceType {
     
     // MARK: - Public Variables
@@ -45,13 +47,6 @@ internal class BinarySearchTree<Element : Comparable> : CustomStringConvertible,
     var root : TreeNode<Element>? = nil
     
     // MARK: - Initializers
-    
-    init(arrayLiteral : Element ...) {
-        
-        for element in arrayLiteral {
-            insert(element)
-        }
-    }
     
     init(arrayLiteral : [Element]) {
         

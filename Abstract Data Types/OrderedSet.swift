@@ -8,7 +8,11 @@
 
 import Foundation
 
-public struct OrderedSet<Element : Comparable> {
+public enum BalancedBinaryTreeType {
+    case AVLTree, Treap
+}
+
+public struct OrderedSet<Element : Comparable> : SequenceType {
     
     // MARK: - Public Variables
     
@@ -18,12 +22,22 @@ public struct OrderedSet<Element : Comparable> {
     
     // MARK: - Private Variables
     
-    private var tree : AVLTree<Element>!
+    private var tree : BinarySearchTree<Element>!
     
     // MARK: - Initializers
     
-    public init(arrayLiteral : Element ...) {
-        tree = AVLTree<Element>(arrayLiteral: arrayLiteral)
+    public init(arrayLiteral : Element ... ,  treeType : BalancedBinaryTreeType = .AVLTree) {
+        
+        switch treeType {
+        case .AVLTree: tree = AVLTree<Element>(arrayLiteral: arrayLiteral)
+        case .Treap: tree = Treap<Element>(arrayLiteral: arrayLiteral)
+        }
+    }
+    
+    // MARK: - Sequence Type
+    
+    public func generate() -> AnyGenerator<Element> {
+        return tree.generate()
     }
     
     // MARK: - Element Insertion

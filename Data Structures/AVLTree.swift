@@ -26,22 +26,9 @@ class AVLTree<Element : Comparable> : BinarySearchTree<Element> {
     
     // MARK: - Initializers
     
-    override init(arrayLiteral : Element ...) {
-        
-        super.init()
-        
-        for element in arrayLiteral {
-            insert(element)
-        }
-    }
-    
     override init(arrayLiteral : [Element]) {
         
-        super.init()
-        
-        for element in arrayLiteral {
-            insert(element)
-        }
+        super.init(arrayLiteral: arrayLiteral)
     }
     
     // MARK: - Element Balance
@@ -75,33 +62,5 @@ class AVLTree<Element : Comparable> : BinarySearchTree<Element> {
         }
         
         return node
-    }
-    
-    private func leftRotate(node : TreeNode<Element>) -> TreeNode<Element> {
-        
-        let right = node.right!
-        
-        let temp = right.left
-        
-        right.left = node
-        node.right = temp
-        
-        if root?.element == node.element { root = right }
-        
-        return right
-    }
-    
-    private func rightRotate(node : TreeNode<Element>) -> TreeNode<Element> {
-        
-        let left = node.left!
-        
-        let temp = left.right
-        
-        left.right = node
-        node.left = temp
-        
-        if root!.element == node.element { root = left }
-        
-        return left
     }
 }

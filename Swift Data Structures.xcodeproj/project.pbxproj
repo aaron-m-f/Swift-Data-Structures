@@ -12,6 +12,8 @@
 		D47A63461CBC727200377F48 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A63451CBC727200377F48 /* PriorityQueue.swift */; };
 		D47A63481CBC807800377F48 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A63471CBC807800377F48 /* AVLTree.swift */; };
 		D47A634A1CBCC1B300377F48 /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A63491CBCC1B300377F48 /* OrderedSet.swift */; };
+		D47A634C1CBCCB3A00377F48 /* TreeRotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A634B1CBCCB3A00377F48 /* TreeRotations.swift */; };
+		D47A634E1CBCCBD000377F48 /* Treap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A634D1CBCCBD000377F48 /* Treap.swift */; };
 		D4EECA681CB88E1A005CD46F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EECA671CB88E1A005CD46F /* AppDelegate.swift */; };
 		D4EECA6A1CB88E1A005CD46F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EECA691CB88E1A005CD46F /* ViewController.swift */; };
 		D4EECA6D1CB88E1A005CD46F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4EECA6B1CB88E1A005CD46F /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 		D47A63451CBC727200377F48 /* PriorityQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriorityQueue.swift; path = "../Abstract Data Types/PriorityQueue.swift"; sourceTree = "<group>"; };
 		D47A63471CBC807800377F48 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVLTree.swift; path = "Data Structures/AVLTree.swift"; sourceTree = SOURCE_ROOT; };
 		D47A63491CBCC1B300377F48 /* OrderedSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderedSet.swift; path = "Abstract Data Types/OrderedSet.swift"; sourceTree = SOURCE_ROOT; };
+		D47A634B1CBCCB3A00377F48 /* TreeRotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeRotations.swift; sourceTree = "<group>"; };
+		D47A634D1CBCCBD000377F48 /* Treap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Treap.swift; sourceTree = "<group>"; };
 		D4EECA641CB88E1A005CD46F /* Swift Data Structures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Data Structures.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EECA671CB88E1A005CD46F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4EECA691CB88E1A005CD46F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +49,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D47A634F1CBCCDB900377F48 /* Ordered Set */ = {
+			isa = PBXGroup;
+			children = (
+				D47A63491CBCC1B300377F48 /* OrderedSet.swift */,
+				D47A63521CBCCDFA00377F48 /* Data Structures */,
+			);
+			name = "Ordered Set";
+			sourceTree = "<group>";
+		};
+		D47A63501CBCCDD700377F48 /* Priority Queue */ = {
+			isa = PBXGroup;
+			children = (
+				D47A63451CBC727200377F48 /* PriorityQueue.swift */,
+				D47A63511CBCCDE700377F48 /* Data Structure */,
+			);
+			name = "Priority Queue";
+			sourceTree = "<group>";
+		};
+		D47A63511CBCCDE700377F48 /* Data Structure */ = {
+			isa = PBXGroup;
+			children = (
+				D47A63421CBC726D00377F48 /* Heap.swift */,
+			);
+			name = "Data Structure";
+			sourceTree = "<group>";
+		};
+		D47A63521CBCCDFA00377F48 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				D47A63411CBC726D00377F48 /* BinarySearchTree.swift */,
+				D47A63471CBC807800377F48 /* AVLTree.swift */,
+				D47A634B1CBCCB3A00377F48 /* TreeRotations.swift */,
+				D47A634D1CBCCBD000377F48 /* Treap.swift */,
+			);
+			name = "Data Structures";
+			sourceTree = "<group>";
+		};
 		D4EECA5B1CB88E1A005CD46F = {
 			isa = PBXGroup;
 			children = (
@@ -64,11 +105,8 @@
 		D4EECA661CB88E1A005CD46F /* Swift Data Structures */ = {
 			isa = PBXGroup;
 			children = (
-				D47A63411CBC726D00377F48 /* BinarySearchTree.swift */,
-				D47A63471CBC807800377F48 /* AVLTree.swift */,
-				D47A63421CBC726D00377F48 /* Heap.swift */,
-				D47A63451CBC727200377F48 /* PriorityQueue.swift */,
-				D47A63491CBCC1B300377F48 /* OrderedSet.swift */,
+				D47A63501CBCCDD700377F48 /* Priority Queue */,
+				D47A634F1CBCCDB900377F48 /* Ordered Set */,
 				D4EECA791CB88E25005CD46F /* App */,
 			);
 			path = "Swift Data Structures";
@@ -158,7 +196,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47A634E1CBCCBD000377F48 /* Treap.swift in Sources */,
 				D4EECA6A1CB88E1A005CD46F /* ViewController.swift in Sources */,
+				D47A634C1CBCCB3A00377F48 /* TreeRotations.swift in Sources */,
 				D47A634A1CBCC1B300377F48 /* OrderedSet.swift in Sources */,
 				D4EECA681CB88E1A005CD46F /* AppDelegate.swift in Sources */,
 				D47A63461CBC727200377F48 /* PriorityQueue.swift in Sources */,
