@@ -10,21 +10,29 @@ import Foundation
 
 // MARK: - Tree Node
 
-private class TreeNode<Element : Comparable> {
+class TreeNode<Element : Comparable> {
     
     var element : Element
     
     var left : TreeNode<Element>?
     var right : TreeNode<Element>?
     
-    init(element : Element, left : TreeNode? = nil, right : TreeNode? = nil) {
+    /* Different attribute in different binary trees.
+    *  See AVLTree, etc, to see individual implementation
+    * of the special variable.
+    */
+    var special : Int
+    
+    init(element : Element, left : TreeNode? = nil, right : TreeNode? = nil, special : Int = 0) {
         self.element = element
         self.left = left
         self.right = right
+        
+        self.special = special
     }
 }
 
-class BinarySearchTree<Element : Comparable> : CustomStringConvertible, SequenceType {
+internal class BinarySearchTree<Element : Comparable> : CustomStringConvertible, SequenceType {
     
     // MARK: - Public Variables
     
@@ -34,7 +42,7 @@ class BinarySearchTree<Element : Comparable> : CustomStringConvertible, Sequence
     
     // MARK: - Private Variables
     
-    private var root : TreeNode<Element>? = nil
+    var root : TreeNode<Element>? = nil
     
     // MARK: - Initializers
     
@@ -73,7 +81,7 @@ class BinarySearchTree<Element : Comparable> : CustomStringConvertible, Sequence
         }
     }
     
-    private func getLeftTail(node : TreeNode<Element>) -> [TreeNode<Element>] {
+    internal func getLeftTail(node : TreeNode<Element>) -> [TreeNode<Element>] {
         var node = node
         var nodes = [TreeNode<Element>]()
         
@@ -97,7 +105,7 @@ class BinarySearchTree<Element : Comparable> : CustomStringConvertible, Sequence
         }
     }
     
-    private func binaryInsert(element : Element, node : TreeNode<Element>?) -> TreeNode<Element>? {
+    internal func binaryInsert(element : Element, node : TreeNode<Element>?) -> TreeNode<Element>? {
         
         guard let node = node else {
             self.count += 1
@@ -110,7 +118,7 @@ class BinarySearchTree<Element : Comparable> : CustomStringConvertible, Sequence
             node.right = binaryInsert(element, node: node.right)
         }
         
-        return node
+        return balanceNode(node)
     }
     
     // MARK: - Element Find
@@ -119,7 +127,7 @@ class BinarySearchTree<Element : Comparable> : CustomStringConvertible, Sequence
         return binarySearch(element, node: root)
     }
     
-    private func binarySearch(element : Element, node : TreeNode<Element>?) -> Bool {
+    internal func binarySearch(element : Element, node : TreeNode<Element>?) -> Bool {
         
         guard let node = node else {
             return false
@@ -141,7 +149,7 @@ class BinarySearchTree<Element : Comparable> : CustomStringConvertible, Sequence
         root = binaryErase(element, node: root)
     }
     
-    private func binaryErase(element : Element, node : TreeNode<Element>?) -> TreeNode<Element>? {
+    internal func binaryErase(element : Element, node : TreeNode<Element>?) -> TreeNode<Element>? {
         
         guard let node = node else { return nil }
         
@@ -153,10 +161,10 @@ class BinarySearchTree<Element : Comparable> : CustomStringConvertible, Sequence
             node.right = binaryErase(element, node: node.right)
         }
         
-        return node
+        return balanceNode(node)
     }
     
-    private func eraseNode(node : TreeNode<Element>) -> TreeNode<Element>? {
+    internal func eraseNode(node : TreeNode<Element>) -> TreeNode<Element>? {
         
         self.count -= 1
         if let _ = node.left, right = node.right {
@@ -164,7 +172,7 @@ class BinarySearchTree<Element : Comparable> : CustomStringConvertible, Sequence
             var next = right
             node.right = self.getSuccessor(right, next: &next)
             node.element = next.element
-            return node
+            return balanceNode(node)
             
         } else if let left = node.left {
             return left
@@ -175,20 +183,27 @@ class BinarySearchTree<Element : Comparable> : CustomStringConvertible, Sequence
         }
     }
     
-    private func getSuccessor(node : TreeNode<Element>, inout next : TreeNode<Element>) -> TreeNode<Element>? {
+    internal func getSuccessor(node : TreeNode<Element>, inout next : TreeNode<Element>) -> TreeNode<Element>? {
         
         if let left = node.left {
             node.left = getSuccessor(left, next: &next)
-            return node
+            return balanceNode(node)
         } else {
             next = node
             return node.right
         }
     }
     
+    // MARK: - Tree Balancing
+    
+    internal func balanceNode(node : TreeNode<Element>) -> TreeNode<Element> {
+        // Ordinary binary trees do not self-balance nodes
+        return node
+    }
+    
     // MARK: - Description
     
-    private func inOrderTraversal(node : TreeNode<Element>?) -> [Element] {
+    internal func inOrderTraversal(node : TreeNode<Element>?) -> [Element] {
         
         var array = [Element]()
         
